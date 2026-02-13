@@ -35,15 +35,24 @@ public class Main {
         do {
             System.out.println("\n------------- MENU --------------");
             System.out.println("1. Display Products");
-            System.out.println("2. Sort by Cost Asc");
-            System.out.println("3. Sort by Cost Desc");
-            System.out.println("4. Sort by Discount Asc");
-            System.out.println("5. Sort by Discount Desc");
-            System.out.println("6. Sort by Rating");
-            System.out.println("7. Filter by Name");
-            System.out.println("8. Filter by Brand");
-            System.out.println("9. Filter by Category");
-            System.out.println("10. Filter by Cost Range");
+            System.out.println("2. Sort by Cost Asc (Method Reference)");
+            System.out.println("3. Sort by Cost Desc (Lambda)");
+            System.out.println("4. Sort by Discount Asc (Anonymous Class)");
+            System.out.println("5. Sort by Discount Desc (Separate Class)");
+            System.out.println("6. Sort by Rating (Comparable)");
+            System.out.println("7. Sort by Cost Asc (Streams)");
+            System.out.println("8. Sort by Cost Desc (Streams)");
+            System.out.println("9. Sort by Discount Asc (Streams)");
+            System.out.println("10. Sort by Discount Desc (Streams)");
+            System.out.println("11. Sort by Rating (Streams)");
+            System.out.println("12. Filter by Name");
+            System.out.println("13. Filter by Brand");
+            System.out.println("14. Filter by Category");
+            System.out.println("15. Filter by Cost Range");
+            System.out.println("16. Filter by Name (Streams)");
+            System.out.println("17. Filter by Brand (Streams)");
+            System.out.println("18. Filter by Category (Streams)");
+            System.out.println("19. Filter by Cost Range (Streams)");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
 
@@ -57,56 +66,100 @@ public class Main {
 
                 case 2:
                     manager.sortByCostAsc();
-                    manager.displayProducts();
                     break;
 
                 case 3:
                     manager.sortByCostDesc();
-                    manager.displayProducts();
                     break;
 
                 case 4:
                     manager.sortByDiscountAsc();
-                    manager.displayProducts();
                     break;
 
                 case 5:
                     manager.sortByDiscountDesc();
-                    manager.displayProducts();
                     break;
 
                 case 6:
                     manager.sortByRating();
-                    manager.displayProducts();
                     break;
 
                 case 7:
+                    manager.sortByCostAscStreams();
+                    break;
+
+                case 8:
+                    manager.sortByCostDescStreams();
+                    break;
+
+                case 9:
+                    manager.sortByDiscountAscStreams();
+                    break;
+
+                case 10:
+                    manager.sortByDiscountDescStreams();
+                    break;
+
+                case 11:
+                    manager.sortByRatingStreams();
+                    break;
+
+                case 12:
                     System.out.print("Enter product name: ");
                     sc.nextLine();
                     String name = sc.nextLine();
                     manager.filterByName(name);
                     break;
 
-                case 8:
+                case 13:
                     System.out.print("Enter brand: ");
                     sc.nextLine();
                     String brand = sc.nextLine();
                     manager.filterByBrand(brand);
                     break;
 
-                case 9:
+                case 14:
                     System.out.print("Enter category: ");
                     sc.nextLine();
                     String category = sc.nextLine();
                     manager.filterByCategory(category);
                     break;
 
-                case 10:
+                case 15:
                     System.out.print("Enter min cost: ");
                     double minCost = sc.nextDouble();
                     System.out.print("Enter max cost: ");
                     double maxCost = sc.nextDouble();
                     manager.filterByMinMaxCost(minCost, maxCost);
+                    break;
+
+                case 16:
+                    System.out.print("Enter product name: ");
+                    sc.nextLine();
+                    String name2 = sc.nextLine();
+                    manager.filterByNameStreams(name2);
+                    break;
+
+                case 17:
+                    System.out.print("Enter brand: ");
+                    sc.nextLine();
+                    String brand2 = sc.nextLine();
+                    manager.filterByBrandStreams(brand2);
+                    break;
+
+                case 18:
+                    System.out.print("Enter category: ");
+                    sc.nextLine();
+                    String category2 = sc.nextLine();
+                    manager.filterByCategoryStreams(category2);
+                    break;
+
+                case 19:
+                    System.out.print("Enter min cost: ");
+                    double minCost2 = sc.nextDouble();
+                    System.out.print("Enter max cost: ");
+                    double maxCost2 = sc.nextDouble();
+                    manager.filterByMinMaxCostStreams(minCost2, maxCost2);
                     break;
 
                 case 0:
@@ -122,5 +175,4 @@ public class Main {
         sc.close();
     }
 }
-
 
