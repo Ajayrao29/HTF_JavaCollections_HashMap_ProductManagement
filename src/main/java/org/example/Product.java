@@ -62,4 +62,40 @@ class ProductManager {
         Collections.sort(list);
         list.forEach(System.out::println);
     }
+
+    public void filterByName(String name) {
+        System.out.println("Filtered by Name: " + name);
+        for (Product p : productMap.values()) {
+            if (p.getPname().equalsIgnoreCase(name)) {
+                System.out.println(p);
+            }
+        }
+    }
+
+    public void filterByBrand(String brand) {
+        System.out.println("Filtered by Brand: " + brand);
+        for (Product p : productMap.values()) {
+            if (p.getBrand().equalsIgnoreCase(brand)) {
+                System.out.println(p);
+            }
+        }
+    }
+
+    public void filterByCategory(String category) {
+        System.out.println("Filtered by Category: " + category);
+        for (Product p : productMap.values()) {
+            if (p.getCategory().equalsIgnoreCase(category)) {
+                System.out.println(p);
+            }
+        }
+    }
+
+    public void filterByMinMaxCost(double minCost, double maxCost) {
+        System.out.println("Filtered by Cost Range: " + minCost + " - " + maxCost);
+        for (Product p : productMap.values()) {
+            if (p.getCost() >= minCost && p.getCost() <= maxCost) {
+                System.out.println(p);
+            }
+        }
+    }
 }
