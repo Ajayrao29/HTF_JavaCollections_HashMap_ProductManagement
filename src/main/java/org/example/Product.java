@@ -81,6 +81,15 @@ class ProductManager {
         }
     }
 
+    //filterByBrand using streams
+    public void filterByBrandStreams(String brand) {
+        System.out.println("Filtered by Brand (Streams): " + brand);
+        productMap.values().stream()
+                .filter(p -> p.getBrand().equals(brand))
+                .forEach(System.out::println);
+    }
+
+
     public void filterByCategory(String category) {
         System.out.println("Filtered by Category: " + category);
         for (Product p : productMap.values()) {
@@ -99,3 +108,4 @@ class ProductManager {
         }
     }
 }
+

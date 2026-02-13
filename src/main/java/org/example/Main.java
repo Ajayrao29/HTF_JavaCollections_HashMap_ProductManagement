@@ -40,6 +40,10 @@ public class Main {
             System.out.println("4. Sort by Discount Asc");
             System.out.println("5. Sort by Discount Desc");
             System.out.println("6. Sort by Rating");
+            System.out.println("7. Filter by Name");
+            System.out.println("8. Filter by Brand");
+            System.out.println("9. Filter by Category");
+            System.out.println("10. Filter by Cost Range");
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
 
@@ -74,6 +78,35 @@ public class Main {
                 case 6:
                     manager.sortByRating();
                     manager.displayProducts();
+                    break;
+
+                case 7:
+                    System.out.print("Enter product name: ");
+                    sc.nextLine();
+                    String name = sc.nextLine();
+                    manager.filterByName(name);
+                    break;
+
+                case 8:
+                    System.out.print("Enter brand: ");
+                    sc.nextLine();
+                    String brand = sc.nextLine();
+                    manager.filterByBrand(brand);
+                    break;
+
+                case 9:
+                    System.out.print("Enter category: ");
+                    sc.nextLine();
+                    String category = sc.nextLine();
+                    manager.filterByCategory(category);
+                    break;
+
+                case 10:
+                    System.out.print("Enter min cost: ");
+                    double minCost = sc.nextDouble();
+                    System.out.print("Enter max cost: ");
+                    double maxCost = sc.nextDouble();
+                    manager.filterByMinMaxCost(minCost, maxCost);
                     break;
 
                 case 0:
