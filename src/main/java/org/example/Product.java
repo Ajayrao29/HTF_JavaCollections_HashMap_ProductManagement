@@ -4,51 +4,62 @@ import java.util.*;
 
 class ProductManager {
 
-    private List<Product> productList = new ArrayList<>();
+    private Map<Integer, Product> productMap = new HashMap<>();
 
     public void addProduct(Product product) {
-        productList.add(product);
+        productMap.put(product.getPid(), product);
         System.out.println("Product Added: " + product.getPname());
     }
 
     public void displayProducts() {
-        productList.forEach(System.out::println);
+        for (Product p : productMap.values()) {
+            System.out.println(p);
+        }
     }
 
-    // 1️⃣ Cost Asc → Method Reference
+    // 1️ Cost Asc ( Method Reference )
     public void sortByCostAsc() {
         System.out.println("Sorted by Cost Asc (Method Reference)");
-        productList.sort(Comparator.comparingDouble(Product::getCost));
+        List<Product> list = new ArrayList<>(productMap.values());
+        list.sort(Comparator.comparingDouble(Product::getCost));
+        list.forEach(System.out::println);
     }
 
-    // 2️⃣ Cost Desc → Lambda
+    // 2️ Cost Desc ( Lambda )
     public void sortByCostDesc() {
         System.out.println("Sorted by Cost Desc (Lambda)");
-        productList.sort((p1, p2) ->
-                Double.compare(p2.getCost(), p1.getCost()));
+        List<Product> list = new ArrayList<>(productMap.values());
+        list.sort((p1, p2) -> Double.compare(p2.getCost(), p1.getCost()));
+        list.forEach(System.out::println);
     }
 
-    // 3️⃣ Discount Asc → Anonymous Class
+    // 3️ Discount Asc ( Anonymous Class )
     public void sortByDiscountAsc() {
         System.out.println("Sorted by Discount Asc (Anonymous Class)");
-        productList.sort(new Comparator<Product>() {
+        List<Product> list = new ArrayList<>(productMap.values());
+        list.sort(new Comparator<Product>() {
             @Override
             public int compare(Product p1, Product p2) {
                 return Double.compare(p1.getDiscountPercentage(),
                         p2.getDiscountPercentage());
             }
         });
+        list.forEach(System.out::println);
     }
 
-    // 4️⃣ Discount Desc → Separate Comparator Class
+    // 4️ Discount Desc ( Separate Comparator Class )
     public void sortByDiscountDesc() {
         System.out.println("Sorted by Discount Desc (Separate Class)");
-        productList.sort(new DiscountDescComparator());
+        List<Product> list = new ArrayList<>(productMap.values());
+        list.sort(new DiscountDescComparator());
+        list.forEach(System.out::println);
     }
 
-    // 5️⃣ Rating → Comparable
+    // 5 Rating ( Comparable )
     public void sortByRating() {
         System.out.println("Sorted by Rating (Comparable)");
-        Collections.sort(productList);
+        List<Product> list = new ArrayList<>(productMap.values());
+        Collections.sort(list);
+        list.forEach(System.out::println);
     }
 }
