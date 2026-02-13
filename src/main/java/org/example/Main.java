@@ -14,19 +14,19 @@ public class Main {
         manager.addProduct(new Product(2, "Jeans", 1000,
                 "Levi's", "Clothing", 4, 15));
 
-        manager.addProduct(new Product(3, "Vaccum Cleaner", 5000,
+        manager.addProduct(new Product(3, "Vacuum Cleaner", 5000,
                 "Philips", "Appliances", 4, 20));
 
-        manager.addProduct(new Product(4, "Shirts", 35,
-                "Decathlon", "Sports", 4, 18));
+        manager.addProduct(new Product(4, "Bat", 2000,
+                "Puma", "Sports", 4, 18));
 
-        manager.addProduct(new Product(5, "Chair", 250,
+        manager.addProduct(new Product(5, "Chair", 2500,
                 "IKEA", "Furniture", 5, 12));
 
-        manager.addProduct(new Product(6, "Laptop", 1500,
+        manager.addProduct(new Product(6, "Laptop", 90000,
                 "Apple", "Laptop", 5, 8));
 
-        manager.addProduct(new Product(7, "TV", 300,
+        manager.addProduct(new Product(7, "TV", 30000,
                 "Sony", "Accessories", 4, 25));
 
         Scanner sc = new Scanner(System.in);
